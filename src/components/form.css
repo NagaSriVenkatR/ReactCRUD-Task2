@@ -1,0 +1,38 @@
+span{
+  font-size: 14px !important;
+  position: absolute !important;
+}
+@media screen and (max-width : 450px) {
+  .parent{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  .info{
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+  .form-div{
+     border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+  .agree{
+    margin-left: 5px !important;
+    font-size: 10px !important;
+  }
+  .conpass{
+    margin-top: 10px !important;
+  }
+  .phone{
+    margin-top: 10px !important;
+  }
+}
+@media screen and (max-width : 770px) {
+  .agree{
+    margin-left: 5px !important;
+    font-size: 14px !important;
+  }
+  label{
+    font-size: 14px !important;
+  }
+}
