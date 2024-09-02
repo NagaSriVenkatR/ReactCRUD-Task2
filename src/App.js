@@ -6,15 +6,16 @@ import { useState } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [selectedUser , setSelectedUser] = useState(null);
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route
-            path="/"
-            element={<Form users={users} setUsers={setUsers} />}
+            path="/form"
+            element={<Form users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser} />}
           />
-          <Route path="/users" element={<Registeredusers users={users} />} />
+          <Route path="/users" element={<Registeredusers users={users} setSelectedUser={setSelectedUser} setUsers={setUsers}/>} />
         </Routes>
       </Router>
     </div>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./form.css"
 import { useNavigate } from 'react-router-dom';
-const Form = ({users,setUsers}) => {
+const Form = ({users,setUsers,setSelectedUser,selectedUser}) => {
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -19,6 +19,11 @@ const Form = ({users,setUsers}) => {
     confirmPassword: "",
   });
   const navigate = useNavigate();
+  useEffect(() => {
+    if (selectedUser) {
+      setFormData(selectedUser);
+    }
+  },[selectedUser])
   const handleReset = () => {
     setFormData({
       fullName: "",
@@ -36,6 +41,7 @@ const Form = ({users,setUsers}) => {
       password: "",
       confirmPassword: "",
     });
+    setSelectedUser(null);
   }
   const handleBlur = (event) => {
     const { name, value } = event.target;
@@ -131,20 +137,46 @@ const Form = ({users,setUsers}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
-      console.log("Form submitted successfully", formData);
-      setUsers([...users,formData]);
+      if (selectedUser) {
+      // Update existing user
+      setUsers(
+        users.map((user) =>
+          user.email === selectedUser.email ? formData : user
+        )
+      );
+      setSelectedUser(null); // Clear selection after update
+    } else {
+      // Add new user
+      setUsers([...users, formData]);
+    }
+      setFormData({
+        fullName: "",
+        phoneNumber: "",
+        email: "",
+        userName: "",
+        password: "",
+        confirmPassword: "",
+      });
+      setErrors({
+        fullName: "",
+        phoneNumber: "",
+        email: "",
+        userName: "",
+        password: "",
+        confirmPassword: "",
+      });
       navigate('/users');
     }
   };
   return (
     <div className="container">
-      <div className="parent row justify-content-center align-items-center mt-lg-5 mt-md-3  px-0 mx-auto">
+      <div className="parent row justify-content-center align-items-center px-0 mx-auto">
         <div
-          className="child col-lg-12 col-xxl-9 col-md-12 px-0 d-sm-flex"
+          className="child col-lg-12 col-xxl-8 col-md-12 px-0 d-sm-flex"
           style={{ boxShadow: "5px 5px 5px 5px", borderRadius: "15px" }}
         >
           <div
-            className="info col-lg-6 col-md-4 p-5"
+            className="info col-lg-6 col-xxl-6 col-md-6 p-5"
             style={{
               backgroundColor: "#3786BD",
               borderTopLeftRadius: "15px",
@@ -174,7 +206,7 @@ const Form = ({users,setUsers}) => {
             </div>
           </div>
           <div
-            className="form-div col-lg-6 col-md-6 p-5 text-start "
+            className="form-div col-lg-6 col-xxl-6 col-md-6 p-5 p-md-3 text-start "
             style={{
               backgroundColor: "whitesmoke",
               borderTopRightRadius: "15px",
@@ -198,7 +230,7 @@ const Form = ({users,setUsers}) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <span className="text-danger">{errors.fullName}</span>
+                  <span className="span text-danger">{errors.fullName}</span>
                 </div>
                 <div className="col phone">
                   <label htmlFor="">Phone Number</label>
@@ -210,7 +242,7 @@ const Form = ({users,setUsers}) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <span className="text-danger">{errors.phoneNumber}</span>
+                  <span className="span text-danger">{errors.phoneNumber}</span>
                 </div>
               </div>
               <div className="col-md mt-3">
@@ -225,7 +257,7 @@ const Form = ({users,setUsers}) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                <span className="text-danger">{errors.email}</span>
+                <span className="span text-danger">{errors.email}</span>
               </div>
               <div className="col-md mt-3 d-md-flex">
                 <div className="col-md me-3">
@@ -238,7 +270,7 @@ const Form = ({users,setUsers}) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <span className="text-danger">{errors.password}</span>
+                  <span className="span text-danger">{errors.password}</span>
                 </div>
                 <div className="col-md conpass">
                   <label htmlFor="">Confirm Password</label>
@@ -250,7 +282,7 @@ const Form = ({users,setUsers}) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <span className="text-danger">{errors.confirmPassword}</span>
+                  <span className="span text-danger">{errors.confirmPassword}</span>
                 </div>
               </div>
               <div className="col-md mt-3">
@@ -266,7 +298,7 @@ const Form = ({users,setUsers}) => {
                   </button>
                 </div>
                 <div>
-                  <button className="btn btn-danger px-4" type="reset" onReset={handleReset}>
+                  <button className="btn btn-danger px-4" type="reset" onClick={handleReset}>
                     Reset
                   </button>
                 </div>
