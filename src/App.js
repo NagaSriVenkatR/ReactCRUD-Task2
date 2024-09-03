@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-dom";
 import "./App.css";
 import Form from "./components/Form";
 import Registeredusers from "./components/Registeredusers";
@@ -13,9 +13,26 @@ function App() {
         <Routes>
           <Route
             path="/form"
-            element={<Form users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser} />}
+            element={
+              <Form
+                users={users}
+                setUsers={setUsers}
+                selectedUser={selectedUser}
+                setSelectedUser={setSelectedUser}
+              />
+            }
           />
-          <Route path="/users" element={<Registeredusers users={users} setSelectedUser={setSelectedUser} setUsers={setUsers}/>} />
+          <Route
+            path="/users"
+            element={
+              <Registeredusers
+                users={users}
+                setSelectedUser={setSelectedUser}
+                setUsers={setUsers}
+              />
+            }
+          />
+          <Route path="/" element={<Navigate to="/form" />} />
         </Routes>
       </Router>
     </div>

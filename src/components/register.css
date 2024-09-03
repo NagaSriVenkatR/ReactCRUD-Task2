@@ -1,0 +1,74 @@
+table{
+  overflow-x: auto !important;
+}
+.description{
+  margin-top: 60px !important;
+  text-align: center !important;
+}
+.fresh-table{
+  background: radial-gradient(ellipse at center, #ff5221 0%, #ffb33b 100%) !important;
+  background-size: 250% 250% !important;
+  margin-top: 45px;
+  box-shadow: -15px 27px 69px rgba(0, 0, 0, .30);
+  margin-bottom: 50px;
+}
+.fixed-table-toolbar{
+  background: none !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+.toolbar{
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.pull-name{
+  float: left !important;
+}
+.btn{
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin-left: 5px !important;
+}
+.pull-right{
+  float: right !important;
+}
+.btn-group{
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.search{
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.search-input{
+    border-top-right-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
+    border-top-left-radius: 30px !important;
+    border-bottom-left-radius: 30px !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: transparent !important; 
+    color: #FFFFFF !important;
+    position: relative !important;
+
+    z-index: 2 !important;
+    max-width: 400px !important;
+    margin-bottom: 0;
+}
+.columns-right{
+  margin-left: 5px !important;
+}
+.fixed-table-container{
+  padding-bottom: 0px !important;
+  position:  relative !important;
+  border: none !important;
+  clear: both !important;
+}
+.fixed-table-body{
+  overflow-x: auto;
+    overflow-y: auto;
+    height: 100%;
+    color: white ;
+}
