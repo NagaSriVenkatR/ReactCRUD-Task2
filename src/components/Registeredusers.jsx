@@ -5,6 +5,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { TiUserDelete } from "react-icons/ti";
 import { FiRefreshCcw } from "react-icons/fi";
 import { CgMenuGridR } from "react-icons/cg";
+import { FaCaretDown } from "react-icons/fa";
 import { MdOutlineCalendarViewMonth } from "react-icons/md";
 import "./register.css"
 const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
@@ -21,12 +22,12 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
   return (
     <div className="container">
       <div className="row mt-4 justify-content-center mx-auto">
-        <div className="col-md-8 col-md-offset-2">
+        <div className="col-md-12 col-lg-10 col-xxl-8">
           <div className="description">
             <h2>Registered Users</h2>
           </div>
           <div className="fresh-table">
-            <div className="fixed-table-toolbar d-flex">
+            <div className="fixed-table-toolbar d-flex justify-content-between mx-3">
               <div className="pull-name">
                 <div className="toolbar">
                   <button id="alertBtn" className="btn btn-default">
@@ -34,14 +35,12 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
                   </button>
                 </div>
               </div>
-              <div className="pull-right search input-group mx-5">
+              <div className="columns columns-right btn-group pull-right">
                 <input
-                  className="form-control search-input"
+                  className="form-control search-input text-white d-none d-md-block"
                   type="search"
                   placeholder="Search"
                 />
-              </div>
-              <div className="columns columns-right btn-group pull-right">
                 <button className="btn btn-default">
                   <FiRefreshCcw />
                 </button>
@@ -49,25 +48,33 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
                   {" "}
                   <MdOutlineCalendarViewMonth />
                 </button>
-                <div className="keep-open btn-group">
-                  <button className="btn btn-default">
-                    <CgMenuGridR />
-                  </button>
-                </div>
+                <button className="btn btn-default fs-5 w-50">
+                  <CgMenuGridR />
+                  <FaCaretDown />
+                </button>
               </div>
+            </div>
+            <div className="ms-5 me-2 mb-3">
+              <input
+                className="form-control search-input text-white d-block d-md-none"
+                type="search"
+                placeholder="Search"
+              />
             </div>
             <div className="fixed-table-container">
               <div className="fixed-table-header d-none"></div>
               <div className="fixed-table-body">
-                <table className="" style={{ overflowX: "auto" }}>
+                <table
+                  className="table table-hover table-striped"
+                  style={{ overflowX: "auto" }}
+                >
                   <thead>
                     <tr>
                       <th>S.No</th>
-                      <th>Full Name</th>
-                      <th>Phone Number</th>
+                      <th>Name</th>
+                      <th>PhoneNumber</th>
                       <th>Email</th>
                       <th>Password</th>
-                      {/* <th>Confirm Password</th> */}
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -80,7 +87,7 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
                         <td>{user.email}</td>
                         <td>{user.password}</td>
                         {/* <td>{user.confirmPassword}</td> */}
-                        <td className="d-flex fs-4 justify-content-evenly">
+                        <td className=" fs-4 justify-content-evenly">
                           <FaUserEdit
                             className="text-success"
                             onClick={() => handleEdit(user)}

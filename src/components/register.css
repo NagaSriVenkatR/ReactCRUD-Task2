@@ -1,6 +1,7 @@
 table{
   overflow-x: auto !important;
 }
+
 .description{
   margin-top: 60px !important;
   text-align: center !important;
@@ -11,6 +12,8 @@ table{
   margin-top: 45px;
   box-shadow: -15px 27px 69px rgba(0, 0, 0, .30);
   margin-bottom: 50px;
+  border-radius: 15px !important;
+  border-bottom-left-radius: 15px !important;
 }
 .fixed-table-toolbar{
   background: none !important;
@@ -22,23 +25,30 @@ table{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.pull-name{
+/* .pull-name{
   float: left !important;
-}
+} */
 .btn{
   border-color: rgba(255, 255, 255, 0.8) !important;
   color: rgba(255, 255, 255, 0.8) !important;
   margin-left: 5px !important;
 }
-.pull-right{
+/* .pull-right{
   float: right !important;
-}
+} */
 .btn-group{
   position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+::placeholder{
+  color: white !important;
+}
+.w-50{
+  width: 80px !important;
+}
 .search{
+  width: max-content !important;
   position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -52,9 +62,9 @@ table{
     background-color: transparent !important; 
     color: #FFFFFF !important;
     position: relative !important;
-
     z-index: 2 !important;
-    max-width: 400px !important;
+    height: 40px !important;
+    max-width: 600px !important;
     margin-bottom: 0;
 }
 .columns-right{
@@ -65,10 +75,35 @@ table{
   position:  relative !important;
   border: none !important;
   clear: both !important;
+  background: radial-gradient(ellipse at center, #ff5221 0%, #ffb33b 100%) !important;
+  border-bottom-left-radius: 15px !important;
+  border-bottom-right-radius: 15px !important;
+}
+button{
+  border-radius: 25px !important;
 }
 .fixed-table-body{
   overflow-x: auto;
     overflow-y: auto;
     height: 100%;
     color: white ;
+}
+table{
+  margin-top: 20px !important;
+  color: white !important;
+}
+thead{
+  background-color: transparent !important;
+  color: white !important;
+}
+tr{
+  background-color: transparent !important;
+}
+th{
+  background-color: transparent !important;
+  color: white !important;
+}
+td{
+  background-color: transparent !important;
+  color: white !important;
 }
