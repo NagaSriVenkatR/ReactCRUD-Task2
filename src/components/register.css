@@ -25,6 +25,9 @@ table{
   margin-top: 10px;
   margin-bottom: 10px;
 }
+/* .btn-default{
+  height: 40px !important;
+} */
 /* .pull-name{
   float: left !important;
 } */
@@ -44,8 +47,8 @@ table{
 ::placeholder{
   color: white !important;
 }
-.w-50{
-  width: 80px !important;
+.pt-3{
+  padding-top: 12px !important;
 }
 .search{
   width: max-content !important;

@@ -15,14 +15,14 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
     setSelectedUser(user);
     navigate('/form');
   }
-  const handleDelete = (id) => {
-    console.log("Deleting user with email:", id);
-    setUsers(users.filter(user => user.id !== id))
+  const handleDelete = (email) => {
+    console.log("Deleting user with email:", email);
+    setUsers(users.filter(user => user.email !== email))
   };
   return (
     <div className="container">
       <div className="row mt-4 justify-content-center mx-auto">
-        <div className="col-md-12 col-lg-10 col-xxl-8">
+        <div className="col-md-12 col-lg-10 col-xxl-9">
           <div className="description">
             <h2>Registered Users</h2>
           </div>
@@ -48,7 +48,7 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
                   {" "}
                   <MdOutlineCalendarViewMonth />
                 </button>
-                <button className="btn btn-default fs-5 w-50">
+                <button className="btn d-flex btn-default pt-3">
                   <CgMenuGridR />
                   <FaCaretDown />
                 </button>
@@ -94,7 +94,7 @@ const Registeredusers = ({ users ,setSelectedUser,setUsers }) => {
                           />
                           <TiUserDelete
                             className="text-danger"
-                            onClick={() => handleDelete(user.id)}
+                            onClick={() => handleDelete(user.email)}
                           />
                           {/* <button
                       className="btn btn-light me-3"

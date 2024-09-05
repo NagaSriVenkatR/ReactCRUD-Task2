@@ -294,7 +294,7 @@ const Form = ({users,setUsers,setSelectedUser,selectedUser}) => {
               <div className="col-md justify-content-end d-flex mt-3 pb-3">
                 <div>
                   <button className="btn btn-primary px-4 me-3" type="submit">
-                    Register
+                    {selectedUser ? "Update" : "Register"}
                   </button>
                 </div>
                 <div>
